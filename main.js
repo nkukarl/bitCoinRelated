@@ -6,23 +6,37 @@ class Block {
 		this.timestamp = timestamp;
 		this.data = data;
 		this.previousHash = previousHash;
-		this.hash = '';
+		this.hash = this.calculateHash();
+		this.nonce = 0;
 	}
 
 	calculateHash() {
 		// Encrypt
-		return  SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+		return  SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data) + this.nonce).toString();
+	}
+
+	mineBlock(difficulty) {
+		// Use difficulty to control how long it takes to generate a block.
+		while (this.hash.substring(0, difficulty) !== Array(difficulty + 1).join('0')) {
+			this.nonce += 1;
+			this.hash = this.calculateHash()
+		}
+
+		console.log('Block mined:', this.hash)
 	}
 }
 
 class BlockChain {
 	constructor() {
+		this.difficulty = 5;
 		this.chain = [this.createGenesisBlock()];
 	}
 
 	createGenesisBlock() {
 		// All block chains start with a manually added block, a.k.a., Genesis block
-		return new Block(0, '01/01/2017', 'Genesis block', '0');
+		const genesisBlock = new Block(0, '01/01/2017', 'Genesis block', '0');
+		genesisBlock.mineBlock(this.difficulty);
+		return genesisBlock;
 	}
 
 	getLatestBlock() {
@@ -32,8 +46,8 @@ class BlockChain {
 	addBlock(newBlock) {
 		// Update the previous hash of the new block to the latest block in the chain
 		newBlock.previousHash = this.getLatestBlock().hash;
-		// Recalculate the has of the new block
-		newBlock.hash = newBlock.calculateHash()
+		// Recalculate the hash of the new block
+		newBlock.mineBlock(this.difficulty)
 		// Append it to the chain
 		this.chain.push(newBlock);
 	}

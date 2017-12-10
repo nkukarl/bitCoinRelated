@@ -1,0 +1,49 @@
+Block mined: 00000295e13b317a97f0e5d1eb0e135e8d6e821ce50f6f36a8011b162c5d2c73
+Block mined: 000007799b4269af89ba8ea522e5e6cf712e74fbfde9c3f31d357487200e3e80
+Block mined: 000008125067f25814c0784beca2989becc5e41a52858831a8d770d7e9897f4a
+Block mined: 00000460cb485b11eb7e741f0327c4f137fcc075569e6a7aaaf2057493d1b224
+{
+    "difficulty": 5,
+    "chain": [
+        {
+            "index": 0,
+            "timestamp": "01/01/2017",
+            "data": "Genesis block",
+            "previousHash": "0",
+            "hash": "00000295e13b317a97f0e5d1eb0e135e8d6e821ce50f6f36a8011b162c5d2c73",
+            "nonce": 1710848
+        },
+        {
+            "index": 1,
+            "timestamp": "02/02/2017",
+            "data": {
+                "amount": 4
+            },
+            "previousHash": "00000295e13b317a97f0e5d1eb0e135e8d6e821ce50f6f36a8011b162c5d2c73",
+            "hash": "000007799b4269af89ba8ea522e5e6cf712e74fbfde9c3f31d357487200e3e80",
+            "nonce": 510630
+        },
+        {
+            "index": 2,
+            "timestamp": "03/03/2017",
+            "data": {
+                "amount": 5
+            },
+            "previousHash": "000007799b4269af89ba8ea522e5e6cf712e74fbfde9c3f31d357487200e3e80",
+            "hash": "000008125067f25814c0784beca2989becc5e41a52858831a8d770d7e9897f4a",
+            "nonce": 1339955
+        },
+        {
+            "index": 3,
+            "timestamp": "04/04/2017",
+            "data": {
+                "amount": 6
+            },
+            "previousHash": "000008125067f25814c0784beca2989becc5e41a52858831a8d770d7e9897f4a",
+            "hash": "00000460cb485b11eb7e741f0327c4f137fcc075569e6a7aaaf2057493d1b224",
+            "nonce": 666299
+        }
+    ]
+}
+Is block chain valid? true
+Is block chain valid? false
