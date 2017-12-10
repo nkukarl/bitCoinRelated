@@ -63,13 +63,17 @@ blockChain.addBlock(new Block(1, '02/02/2017', {amount: 4}));
 blockChain.addBlock(new Block(2, '03/03/2017', {amount: 5}));
 blockChain.addBlock(new Block(3, '04/04/2017', {amount: 6}));
 
-// Print out the blockChain
+// Print out the block chain
 console.log(JSON.stringify(blockChain, null, 4));
 
 // Ensure the block chain is valid.
 console.log('Is block chain valid?', blockChain.isChainValid());
 
+// Tamper data of a block
 blockChain.chain[1].data = {amount: -1};
+
+// Try to update the hash of the tampered block to fake genuineness
 blockChain.chain[1].hash = blockChain.chain[1].calculateHash();
 
+// Block chain is invalid
 console.log('Is block chain valid?', blockChain.isChainValid());
